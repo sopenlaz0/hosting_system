@@ -6,7 +6,7 @@ import Icon from "@/components/ui/Icon";
 import { useDispatch } from "react-redux";
 import useMobileMenu from "@/hooks/useMobileMenu";
 
-const Navmenu = ({ menus }) => {
+const Navmenu = ({ menus , role}) => {
   const router = useRouter();
   const [activeSubmenu, setActiveSubmenu] = useState(null);
 
@@ -49,7 +49,7 @@ const Navmenu = ({ menus }) => {
   return (
     <>
       <ul>
-        {menus.map((item, i) => (
+        {menus.filter((item) => item.roles.includes(role)).map((item, i) => (
           <li
             key={i}
             className={` single-sidebar-menu 
